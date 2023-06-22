@@ -11,11 +11,14 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=2-00:00:00
 
+# USAGE: align.sh MERGED5MCFILE PREFIX
+
 set -e                                                                                  # Error if a single command fails
 set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run
+set -x
 
 module load samtools
 module load conda/latest
 conda activate my.bio3
 
-pbmm2 align /home/asillers/Genome/farr1.mmi S21.5mc.hifi.bam S21.5mc.aligned.bam --sort
+pbmm2 align /home/asillers/Genome/farr1.mmi $1 $2.5mc.aligned.bam --sort

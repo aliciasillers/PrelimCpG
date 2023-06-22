@@ -11,8 +11,13 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=1-00:00:00
 
-module load conda/latest
+# USAGE: ccs2.sh SUBREADSFILE PREFIX
 
+set -e                                                                                  # Error if a single command fails
+set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run
+set -x
+
+module load conda/latest
 conda activate my.bio3
 
-ccs S21_L_V_AB.subreads.bam S21.hifi.bam --hifi-kinetics -j 48
+ccs $1 $2.hifi.bam --hifi-kinetics -j 48

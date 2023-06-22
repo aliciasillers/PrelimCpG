@@ -11,8 +11,14 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=1-00:00:00
 
-module load conda/latest
+# USAGE: jasmine.sh HIFIFILE PREFIX
+#add '.1' to sample name for prefix if some 5mc.hifi data already exists
 
+set -e                                                                                  # Error if a single command fails
+set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run
+set -x
+
+module load conda/latest
 conda activate my.bio3
 
-jasmine S21.hifi.bam S21.5mc.hifi.bam
+jasmine $1 $2.5mc.hifi.bam

@@ -11,7 +11,13 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=08:00:00
 
+# USAGE: merge.sh FILE1 FILE2 PREFIX
+
+set -e                                                                                  # Error if a single command fails
+set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run
+set -x
+
 module load samtools
 
-samtools merge -o S42.5mc.hifi.bam S42.5mc.hifi.1.bam S42_AJ.5mc.hifi.bam
+samtools merge -o $3.5mc.hifi.bam $1 $2
 
