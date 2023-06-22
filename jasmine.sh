@@ -11,8 +11,8 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=1-00:00:00
 
-# USAGE: jasmine.sh HIFIFILE PREFIX
-#add '.1' to sample name for prefix if some 5mc.hifi data already exists
+# USAGE: jasmine.sh HIFIFILE SAMPLENAME
+#add '.1' to sample name if some 5mc.hifi data already exists for the sample
 
 set -e                                                                                  # Error if a single command fails
 set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run

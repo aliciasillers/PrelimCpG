@@ -11,7 +11,7 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=08:00:00
 
-# USAGE: merge.sh FILE1 FILE2 PREFIX
+# USAGE: merge.sh FILE1 FILE2 SAMPLENAME
 
 set -e                                                                                  # Error if a single command fails
 set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run

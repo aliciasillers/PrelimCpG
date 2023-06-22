@@ -11,7 +11,7 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=1-00:00:00
 
-# USAGE: cpgtools.sh ALIGNEDFILE PREFIX
+# USAGE: cpgtools.sh ALIGNEDFILE SAMPLENAME
 
 set -e                                                                                  # Error if a single command fails
 set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run
