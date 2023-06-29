@@ -16,6 +16,6 @@ set -x                                                                     # Err
 set -u
 
 module load conda/latest
-conda activate snake
+conda activate snakebio3
 
-snakemake -j 4
+snakemake -j 20

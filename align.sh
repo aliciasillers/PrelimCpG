@@ -17,7 +17,6 @@ set -e                                                                          
 set -u                                                                                  # Error if un-named variables calledset -x                                                                                  # Print commands as they run
 set -x
 
-module load samtools
 module load conda/latest
 conda activate my.bio3
 
