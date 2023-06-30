@@ -21,7 +21,10 @@ rule pbmm2:
 rule cpgtools:
   conda: "snakebio3.yml",
   input: "{sample}.5mc.aligned.hifi.bam",
-  output: "{sample}.ccs.combined.bed",
+  output: 
+	"{sample}.ccs.combined.bed",
+	"{sample}.ccs.combined.bw",
+	"{sample}.ccs.log",
   shell: """
-    pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/bin/aligned_bam_to_cpg_scores --bam {input} --output-prefix SAMPLES.cpg --model pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/models/pileup_calling_model.v1.tflite --threads 12
+    pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/bin/aligned_bam_to_cpg_scores --bam {input} --output-prefix {sample}.cpg --model pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/models/pileup_calling_model.v1.tflite --threads 12
   """
