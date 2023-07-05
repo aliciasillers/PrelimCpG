@@ -1,13 +1,11 @@
 #sample definition
-SAMPLES = ["S8",
-          "S16",
-          "S25",
-          "S27"]
+SAMPLES = ["S14",
+          "S30"]
 
 
 #top-level rule to get output of cpgtools step
 rule all:
-  input: expand('{sample}.ccs.combined.bed',  sample=SAMPLES)
+  input: expand('{sample}.cpg.combined.bed',  sample=SAMPLES)
 
 #rules with commands to execute  
 rule pbmm2:
@@ -22,9 +20,9 @@ rule cpgtools:
   conda: "snakebio3.yml",
   input: "{sample}.5mc.aligned.hifi.bam",
   output: 
-	"{sample}.ccs.combined.bed",
-	"{sample}.ccs.combined.bw",
-	"{sample}.ccs.log",
+    "{sample}.cpg.combined.bed",
+    "{sample}.cpg.combined.bw",
+    "{sample}.cpg.log",
   shell: """
-    pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/bin/aligned_bam_to_cpg_scores --bam {input} --output-prefix {sample}.cpg --model pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/models/pileup_calling_model.v1.tflite --threads 12
+    pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/bin/aligned_bam_to_cpg_scores --bam {input} --output-prefix {wildcards.sample}.cpg --model pb-CpG-tools-v2.3.1-x86_64-unknown-linux-gnu/models/pileup_calling_model.v1.tflite --threads 12
   """
