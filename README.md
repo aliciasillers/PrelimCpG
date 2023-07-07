@@ -38,8 +38,10 @@ To run a sample through this workflow, the scripts in this repo must be run in t
 2. jasmine.sh HIFIFILE SAMPLENAME	
 3. align.sh 5MCFILE SAMPLENAME	
 4. cpgtools.sh ALIGNEDFILE SAMPLENAME	
+
 The merge.sh script was used in between steps 2 and 3 for some samples that had both subreads and already existing 5mc.hifi.bam files.	
-The output .bed file will have the following tab-delimited columns of data:
+The output .bed file will have the following tab-delimited columns of data:	
+
 1. reference name
 2. start coordinate
 3. end coordinate
@@ -60,4 +62,5 @@ Because methylKit is designed to be used with methylation data from bisulfite se
 5. coverage	
 6. percent methylated	
 7. percent unmethylated	
+
 As a result, the .bed file(s) from the previous workflow needs to be modified to fit this format. 
