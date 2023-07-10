@@ -27,7 +27,8 @@ conda env create -n snakebio3 -f snakebio2.yml
 ### Environment for analysis with methylKit
 
 ```bash
-conda env create -n methylkitenv r-methylkit
+#works best if you use the rmethyl.yml file in this repo rather than listing packages on command line
+conda env create -n rmethyl -y rmethyl.yml
 ```
 
 ## PacBio subreads to CpG data workflow
