@@ -41,6 +41,7 @@ To run a sample through this workflow, the scripts in this repo must be run in t
 4. cpgtools.sh ALIGNEDFILE SAMPLENAME	
 
 The merge.sh script was used in between steps 2 and 3 for some samples that had both subreads and already existing 5mc.hifi.bam files.	
+
 The output .bed file will have the following tab-delimited columns of data:	
 
 1. reference name
@@ -64,4 +65,8 @@ Because methylKit is designed to be used with methylation data from bisulfite se
 6. percent methylated	
 7. percent unmethylated	
 
-As a result, the .bed file(s) from the previous workflow needs to be modified to fit this format. 
+As a result, the .bed file(s) from the previous workflow needs to be modified to fit this format. The methylformat.R and methylformat.sh scripts perform this reformatting. The usage is as follows:	
+
+methylformat.sh SAMPLENAME	
+
+This script will activate the rmethyl conda environment and run the R script with the sample name you indicate on the command line. The output will be a .tsv file with the correct columns needed to run methylKit. Note that strand is indicated as 'F' for everything. 
