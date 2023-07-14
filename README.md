@@ -69,4 +69,4 @@ As a result, the .bed file(s) from the previous workflow needs to be modified to
 
 methylformat.sh SAMPLENAME	
 
-This script will activate the rmethyl conda environment and run the R script with the sample name you indicate on the command line. The output will be a .tsv file with the correct columns needed for use with methylKit. Note that strand is indicated as 'F' for everything. 
+This script will activate the rmethyl conda environment and run the R script with the sample name you indicate on the command line. The output will be a .tsv file with the correct columns needed for use with methylKit. Strand is indicated as 'F' for every entry, which is consistent with the output format of the PacBio Jasmine program. 
