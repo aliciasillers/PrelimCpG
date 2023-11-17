@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains the scripts for processing and analyzing some preliminary data for my work on plant aging, first by following a workflow to extract CpG methylation data from PacBio HiFi subreads, and then by analyzing this data with the methylKit R package.
+This repository contains the scripts for processing and analyzing some preliminary data for my work on plant aging, first by following a workflow to extract CpG methylation data from PacBio HiFi subreads, then by filtering the data and performing penalized regression with age data.
 
 ## Conda Environment Creation
 
@@ -24,11 +24,11 @@ conda env create -n snakebio3 pbccs pbjasmine pbmm2 snakemake
 conda env create -n snakebio3 -f snakebio2.yml
 ```
 
-### Environment for analysis with methylKit
+### Environment for filtering and analysis with r
 
 ```bash
 #works best if you use the rmethyl.yml file in this repo rather than listing packages on command line
-conda env create -n rmethyl -f rmethyl.yml
+conda env create -n regr -f regr.yml
 ```
 
 ## PacBio subreads to CpG data workflow
@@ -54,19 +54,4 @@ The output .bed file will have the following tab-delimited columns of data:
 8. estimated unmodified site count (extrapolated from model modification probability)
 9. discretized modification probability (calculated from estimated mod/unmod site counts)
 
-## methylKit workflow
-
-Because methylKit is designed to be used with methylation data from bisulfite sequencing, it takes input data in a couple of formats specific to that method of data generation. One of these input formats is a tab-delimited file with the following columns of data:	
-1. unique.id	
-2. chromosome name	
-3. site position	
-4. strand	
-5. coverage	
-6. percent methylated	
-7. percent unmethylated	
-
-As a result, the .bed file(s) from the previous workflow needs to be modified to fit this format. The methylformat.R and methylformat.sh scripts perform this reformatting. The usage is as follows:	
-
-methylformat.sh SAMPLENAME	
-
-This script will activate the rmethyl conda environment and run the R script with the sample name you indicate on the command line. The output will be a .tsv file with the correct columns needed for use with methylKit. Strand is indicated as 'F' for every entry, which is consistent with the output format of the PacBio Jasmine program. 
+## filtering
