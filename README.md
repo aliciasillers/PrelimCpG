@@ -55,3 +55,5 @@ The output .bed file will have the following tab-delimited columns of data:
 9. discretized modification probability (calculated from estimated mod/unmod site counts)
 
 ## filtering
+
+Because sequence coverage differs among samples, the data needs to be filtered to limit the numbers of sites that are represented in more samples than others. The first filtering script (filter1.sh) in this repository removes cpg sites that are covered in less than 30% of samples. The second (filter2.sh) returns a list of samples that have less than 10% of the maximum remaining coverage of cpg sites. It does not automatically remove the samples from the data table so that low coverage samples can be manually picked to include or exclude based on other factors. After this filtering has been completed, any remaining NA values are imputed with the column mean using the impute script (impute.sh).
