@@ -61,4 +61,4 @@ Because sequence coverage differs among samples, the data needs to be filtered t
 ## Regression
 
 The R package glmnet is used to perform penalized regression. 
-regression.R takes the output from the imputation done in the filtering script and returns a table of cpg sites with the strongest associations with age. Run using regression.sh
+regression.R takes the output from the imputation done in the filtering step and returns a table of cpg sites with the strongest associations with age. Run using regression.sh
