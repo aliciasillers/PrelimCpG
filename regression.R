@@ -5,8 +5,10 @@ library(glmnet)
 # read in data
 
 allcpg <- read.delim("regmatrix.tsv", sep = '\t', header = TRUE)
+allcpg <- as.matrix(allcpg)
 agelist <- as.list(readLines("agelist.txt"))
 agelist <- unlist(agelist)
+agelist <- as.numeric(agelist)
 
 # perform penalized regression
 
@@ -21,9 +23,15 @@ regplot <- plot(regr)
 print(regplot)
 dev.off()
 
-#get associated sites
+# get best lambda (s) value
 
-cpgsites <- as.data.frame(as.matrix(coef(regr, s = 2))) %>% filter(s1>0)
+cvfit <- cv.glmnet(x = allcpg, y = agelist)
+cvfit$lambda.min
+
+# get cpg sites
+
+cpgsites <- as.data.frame(as.matrix(coef(cvfit, s = "lambda.min"))) %>% filter(s1!=0) %>% arrange(desc(abs(s1)))
+
 
 # write data
 
