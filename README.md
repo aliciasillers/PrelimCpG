@@ -35,7 +35,7 @@ conda env create -n regr -f regr.yml
 
 This workflow takes PacBio subreads as input and produces a .bed file and a .bw file that give the probability of methylation of each CpG site across the genome. The .bw file can be viewed in IGV or another genome browser. The .bed file will be used for further analysis in this project.	
 To run a sample through this workflow, the scripts in this repo must be run in the following order with commandline input:	 
-1. ccs2.sh SUBREADSFILE SAMPLENAME 	
+1. ccs.sh SUBREADSFILE SAMPLENAME 	
 2. jasmine.sh HIFIFILE SAMPLENAME	
 3. align.sh 5MCFILE SAMPLENAME	
 4. cpgtools.sh ALIGNEDFILE SAMPLENAME	

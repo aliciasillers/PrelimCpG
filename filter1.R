@@ -14,15 +14,18 @@ rm(S1, S12, S13, S14, S15, S17, S19, S2, S20, S21, S23, S25, S26, S27, S28, S3, 
 
 #create matrix
 allcpg <- dflist %>% reduce(full_join, by='pos.id')
+dim(allcpg)
 
 #filter
-allcpg2 <- allcpg[rowSums(is.na(allcpg[,-1])) < 8,]
+allcpg2 <- allcpg[rowSums(is.na(allcpg[,-1])) < 10,]
+dim(allcpg2)
 allcpg2 <- t(allcpg2)
 allcpg2 <- as.data.frame(allcpg2)
 allcpg2 <- sqlRownamesToColumn(allcpg2, row.names = 'pos.id')
 colnames(allcpg2) <- as.character(allcpg2[1,])
 allcpg2 <- allcpg2[-1,]
 
+dim(allcpg2)
 
 #write output
 write.table(allcpg2, "cpgmatrixf1v2.tsv", sep = '\t', quote = FALSE, row.names = FALSE)
