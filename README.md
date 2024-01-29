@@ -24,11 +24,17 @@ conda env create -n snakebio3 pbccs pbjasmine pbmm2 snakemake
 conda env create -n snakebio3 -f snakebio2.yml
 ```
 
-### Environment for filtering and analysis with r
+### Environment for cpg site analysis in r
 
 ```bash
 #works best if you use the rmethyl.yml file in this repo rather than listing packages on command line
 conda env create -n regr -f regr.yml
+```
+
+### Environment for dmr analysis in r
+
+```bash
+conda env create -n rmethyl -f rmethyl.yml
 ```
 
 ## Part 1: PacBio subreads to CpG data workflow
