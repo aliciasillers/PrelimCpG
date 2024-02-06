@@ -27,7 +27,6 @@ conda env create -n snakebio3 -f snakebio2.yml
 ### Environment for cpg site analysis in r
 
 ```bash
-#works best if you use the rmethyl.yml file in this repo rather than listing packages on command line
 conda env create -n regr -f regr.yml
 ```
 
