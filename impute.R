@@ -11,6 +11,7 @@ allcpg <- as.data.frame(allcpg)
 # impute NAs with mean
 
 #allcpg <- makeX(allcpg, na.impute = TRUE)
+
 allcpg <- sqlColumnToRownames(allcpg, row.names='pos.id')
 allcpg <- replace_na(allcpg, as.list(colMeans(allcpg,na.rm=T)))
 allcpg <- sqlRownamesToColumn(allcpg, row.names='pos.id')

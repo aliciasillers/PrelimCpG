@@ -11,7 +11,7 @@ samplelist <- allcpg %>%
   rowwise() %>%
   mutate(n.sites=sum(!is.na(c_across(starts_with("c"))))) %>% #problem might be with header, could try quotes
   ungroup() %>%
-  filter(n.sites < (max(n.sites))*.75) %>%
+  filter(n.sites < (max(n.sites))*.1) %>%
   pull(pos.id)
 
 samplelist

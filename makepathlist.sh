@@ -11,4 +11,4 @@
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=00:30:00
 
-find ~+ -name '*.methyl.tsv' | sort > pathlist.txt
+find ~+ -name '*.filt.methyl.tsv' | sort > pathlist.txt
