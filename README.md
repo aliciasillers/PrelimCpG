@@ -70,12 +70,20 @@ Because sequence coverage differs among samples, the data needs to be filtered t
 #### Regression
 
 The R package glmnet is used to perform penalized regression. 
-regression.R takes the output from the imputation done in the filtering step and returns a table of cpg sites with the strongest associations with age. Run using regression.sh
+regression.R takes the output from the imputation done in the filtering step and returns a table of CpG sites with the strongest associations with age. Run using regression.sh
 
-### Identifying Differentially Methylated Regions (in progress)
+### Identifying Differentially Methylated Regions
+
+#### Formating
+
+MethylKit is an R program that can identify DMRs with high sensitivity. It requires input files to be in a specific format. The methylformat.sh script takes the bed file for each sample and creates a tab-separated file for that sample in the correct format for use with MethylKit.
 
 #### Filtering
+
+The first step is to filter CpG sites that have low coverage among the samples. The dmrfilter.sh script runs an R script that reads each formatted file and filters out CpG sites that are covered in less than half of the samples.
 
 #### DMR identification with MethylKit
 
 #### Visualization
+
+The previous script will automatically output bedgraph files that can be visualized in genome viewers such as IGV. It will also output a tab separated file with a list of CpG sites in DMRs. This file can be used in the next script (in progress) which will visualize changes in CpG sites among samples.
