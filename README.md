@@ -84,6 +84,8 @@ The first step is to filter CpG sites that have low coverage among the samples. 
 
 #### DMR identification with MethylKit
 
+Run DMR identification with getdmrs.sh
+
 #### Visualization
 
 The previous script will automatically output bedgraph files that can be visualized in genome viewers such as IGV. It will also output a tab separated file with a list of CpG sites in DMRs. This file can be used in the next script (in progress) which will visualize changes in CpG sites among samples.
